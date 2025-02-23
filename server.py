@@ -11,6 +11,9 @@ def sent_detector():
     # Pass the text to the sentiment_analyzer function and store the response
     response = emotion_detector(text_to_analyze)
 
+    # Check if the dominant_emotion is None, indicating an error or invalid input
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again."
     # Return a formatted string with the sentiment label and score
     return (
         f"For the given statement, the system response is 'anger': {response['anger']}, "
